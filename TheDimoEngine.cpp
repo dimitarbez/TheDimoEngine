@@ -1,10 +1,11 @@
 #include <iostream>
 #include "GL/glew.h"
 #include "Display.h"
+#undef main
 
 int main()
 {
-	Display display(1280, 720, "Memes");
+	Display display(800, 600, "Memes");
 	
 	while (!display.IsClosed())
 	{
@@ -13,4 +14,5 @@ int main()
 
 		display.Update();
 	}
+	return 0;
 }
