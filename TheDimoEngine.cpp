@@ -5,7 +5,11 @@
 #include "Mesh.h"
 #include "Texture.h"
 #include "Transform.h"
+#include "Camera.h"
 #undef main
+
+#define WIDTH 800
+#define HEIGHT 600
 
 int main()
 {
@@ -19,6 +23,7 @@ int main()
 	Shader shader("./res/basicShader");
 	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]));
 	Texture texture("./res/bricks.jpg");
+	Camera camera(glm::vec3(0, 0, -2), 70.f, (float)WIDTH/(float)HEIGHT, 0.01f, 1000.f);
 	Transform transform;
 
 	float counter = 0.0f;
@@ -31,6 +36,7 @@ int main()
 		float cosCounter = cosf(counter);
 
 		transform.GetPosition().x = sinf(counter);
+		transform.GetPosition().z = cosf(counter);
 		transform.GetRotation().z = cosf(counter);
 		transform.GetRotation().x = counter*3;
 
@@ -38,7 +44,7 @@ int main()
 
 		shader.Bind();
 		texture.Bind(0);
-		shader.Update(transform);
+		shader.Update(transform, camera);
 		mesh.Draw();
 
 		display.Update();
