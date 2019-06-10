@@ -27,9 +27,9 @@ public:
 	inline glm::vec3& GetRotation() { return m_rot; }
 	inline glm::vec3& GetScale() { return m_scale; }
 
-	inline void SetPos(glm::vec3& position) { m_pos = position; }
-	inline void SetRot(glm::vec3& rotation) { m_rot = rotation; }
-	inline void SetScale(glm::vec3& scale) { m_scale = scale; }
+	inline void SetPos(const glm::vec3& position) { m_pos = position; }
+	inline void SetRot(const glm::vec3& rotation) { m_rot = rotation; }
+	inline void SetScale(const glm::vec3& scale) { m_scale = scale; }
 private:
 	glm::vec3 m_pos;
 	glm::vec3 m_rot;
