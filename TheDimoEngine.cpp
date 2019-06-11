@@ -26,7 +26,7 @@ int main()
 	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]), indices, sizeof(indices)/sizeof(indices[0]));
 	Mesh mesh2("./res/monkey3.obj");
 	Texture texture("./res/bricks.jpg");
-	Camera camera(glm::vec3(0, 0, -2), 70.f, (float)WIDTH/(float)HEIGHT, 0.01f, 1000.f);
+	Camera camera(glm::vec3(0, 0, -4), 70.f, (float)WIDTH/(float)HEIGHT, 0.01f, 1000.f);
 	Transform transform;
 
 	float counter = 0.0f;
@@ -42,8 +42,6 @@ int main()
 		transform.GetPosition().z = cosf(counter);
 		transform.GetRotation().z = cosf(counter);
 		transform.GetRotation().x = counter*3;
-
-		transform.SetScale(glm::vec3(cosCounter, cosCounter, cosCounter));
 
 		shader.Bind();
 		texture.Bind(0);
